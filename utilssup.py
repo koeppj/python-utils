@@ -1,4 +1,8 @@
-import argparse
+"""Python Utilities Support Module
+
+   Provides functions and classes used by all the utilities.
+"""
+import argparse, configparser, os
 from pathlib import Path
 
 class NewFileAction(argparse.Action): 
@@ -23,3 +27,17 @@ class ExistFileAction(argparse.Action):
             exit()
         f = p.open(mode="r")
         setattr(namespace,self.dest,f)
+
+def get_config(): 
+    """Get Utilities Configuration
+
+       Load configuration from 
+           1) defaults.cfg and 
+           2) pyutils.cfg in current dir and 
+           3) pytils in user home dir
+    """
+    config = configparser.ConfigParser(allow_no_value=True)
+    config.read([
+      os.curdir + os.sep + '.pyutils.cfg',
+      os.path.expanduser('~') + os.sep + '.pyutils.cfg'
+    ])

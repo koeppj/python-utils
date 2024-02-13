@@ -1,4 +1,4 @@
-"""Generate genenic scripts from templates and inpupt data.
+"""Generate genenic scripts from templates and input data.
 
    For usage datails run "scriptgen --help"
 """
