@@ -34,12 +34,6 @@ def proc_inputs(values:csv.DictReader,templates:list[str],output:TextIOWrapper |
     """
     for row in values:
         proc_value_inputs(values=row,templates=templates,output=output)
-        # Replace all the single qoute strings in values with 'double' single qoute
-        #for key in row.__iter__():
-        #    row[key] = row[key].replace("'","''")
-        #for template in templates:
-        #    proc_line(input_line=template,values=row,outfile=output)
-        #print('',file=output)
 
 def proc_value_inputs(values:dict[Any, str | Any] | Any,templates:list[str],output:TextIOWrapper | None):
     """ Use the provided dictionary values to process the template file 
